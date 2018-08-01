@@ -6,6 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>White Board Studio</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" media="screen" href="./css/reset.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
 
 	<script src="libraries/p5.js"></script>
@@ -13,10 +14,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
-
+	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="./js/whiteboard.js"></script>
 	<script src="./js/sketch.js"></script>
-	
+
 </head>
 
 <body>
@@ -26,18 +27,57 @@
 		<div class="sidebar">
 			<div class="title">Main Menu</div>
 			<ul class="nav">
+				<!-- Nav Bar Buttons -->
 				<li>
-					<a class="buttonCreate">Create a New Studio</a>
+					<button type="button" class="btn btn-primary btn-lg" id='buttonCreate'>Create a New Studio</button>
 				</li>
 				<li>
-					<a class="buttonEnter">Enter a Studio</a>
-
+					<button type="button" class="btn btn-primary btn-lg" id="buttonEnter">Enter a Studio</a>
+				</li>
+				<li>
+					<button type="button" class="btn btn-primary btn-lg" id="buttonSettings">Settings</a>
 				</li>
 			</ul>
+			<form id="formCreate">
+				<h2 class="formHeaders">Create Studio</h2>
+				<div class="container">
+					<div class="switch switch--horizontal">
+						<input id="radio-a" type="radio" name="first-switch" checked="checked" />
+						<label for="radio-a">Public</label>
+						<input id="radio-b" type="radio" name="first-switch" />
+						<label for="radio-b">Private</label>
+						<span class="toggle-outside">
+							<span class="toggle-inside"></span>
+						</span>
+					</div>
+				</div>
+				<b>Studio Name: </b>
+				<input class="formField" type="text" name="studioName">
+				<b>Password: </b>
+				<input class="formField" type="text" name="studioPassword">
+				<button class="formButton" type="button" id="submit">Create Studio</button>
+			</form>
+			<!-- Form for Entering a Pre-Existing Studio -->
+			<form id="formEnter">
+				<h2 class="formHeaders">Enter Studio</h2>
+				<b>Studio Name: </b>
+				<input class="formField" type="text" name="studioName">
+				<b>Password: </b>
+				<input class="formField" type="text" name="studioPassword">
+				<button class="formButton" type="button" id="submit">Enter Studio</button>
+			</form>
+			<!-- Form for Entering Settings -->
+			<form id="formSettings">
+				<h2 class="formHeaders">Settings</h2>
+				<p>Admin access is required to adjust settings.</p>
+				<b>Password:</b>
+				<input class="formField" type="text" name="studioPassword">
+				<button class="formButton" type="button" id="submit">Submit</button>
+			</form>
 		</div>
 
 		<!-- <div class="content content-is-open">  remove "content-is-open" to have the page start closed-->
-		<div class="content" id ="contentDiv">
+		<div class="content" id="contentDiv">
 			<div class="flex-container">
 				<div>
 					<span class='side-panel-toggle'>
@@ -65,13 +105,13 @@
 				</div>
 
 
-					<h2 class = "hoverhide">Share your drawings in real time.</h2>
-					<h2 class = "hoverhide">To begin, find an exisiting studio or create a new one.</h2>
-				
+				<h2 class="hoverhide">Share your drawings in real time.</h2>
+				<h2 class="hoverhide">To begin, find an exisiting studio or create a new one.</h2>
 
-					<!-- dummy form for rooms/table generating -->
 
-						<!-- <div>
+				<!-- dummy form for rooms/table generating -->
+
+				<!-- <div>
 							<b>ROOMS</b>
 							<div id="rooms">
 								<a href="#" id="room1">room1</a>
@@ -86,9 +126,9 @@
 						
 						<input type="text" id="boardSearch">
 						<button id="boardButton">Board Search</button> -->
-						
-						
-						<!-- <div id="sketch-holder"></div> -->
+
+
+				<!-- <div id="sketch-holder"></div> -->
 			</div>
 		</div>
 
@@ -102,5 +142,3 @@
 </body>
 
 </html>
-
-
