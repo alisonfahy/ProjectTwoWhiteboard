@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>White Board Studio</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
+
+	<script src="libraries/p5.js"></script>
+	<script src="libraries/p5.dom.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
+
+	<script src="./js/whiteboard.js"></script>
+	<script src="./js/sketch.js"></script>
+	
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<!-- sidebar start -->
+		<div class="sidebar">
+			<div class="title">Main Menu</div>
+			<ul class="nav">
+				<li>
+					<a class="buttonCreate">Create a New Studio</a>
+				</li>
+				<li>
+					<a class="buttonEnter">Enter a Studio</a>
+
+				</li>
+			</ul>
+		</div>
+
+		<!-- <div class="content content-is-open">  remove "content-is-open" to have the page start closed-->
+		<div class="content" id ="contentDiv">
+			<div class="flex-container">
+				<div>
+					<span class='side-panel-toggle'>
+						<i class="fa fa-bars"></i>
+				</div>
+
+				<div class="siteHeading">
+					<h1>Whiteboard</h1>
+				</div>
+
+				</span>
+			</div>
+			<div class="flex-container-subtext">
+
+				<!-- color picker nav bar -->
+				<div id="colorNav">
+					<div id="cred"></div>
+					<div id="cgreen"></div>
+					<div id="cblue"></div>
+					<div id="cblack"></div>
+					<div id="cwhite"></div>
+					<div>
+						<a href="#" class="button" id="btn-download">Download</a>
+					</div>
+				</div>
+
+
+					<h2 class = "hoverhide">Share your drawings in real time.</h2>
+					<h2 class = "hoverhide">To begin, find an exisiting studio or create a new one.</h2>
+				
+
+					<!-- dummy form for rooms/table generating -->
+
+						<!-- <div>
+							<b>ROOMS</b>
+							<div id="rooms">
+								<a href="#" id="room1">room1</a>
+								<a href="#" id="room2">room2</a>
+								<a href="#" id="room3">room3</a>
+							</div>
+						</div>
+						<input type="text" id="name">
+						<input type="text" id="description">
+						<input type="text" id="route">
+						<button id="test">test</button>
+						
+						<input type="text" id="boardSearch">
+						<button id="boardButton">Board Search</button> -->
+						
+						
+						<!-- <div id="sketch-holder"></div> -->
+			</div>
+		</div>
+
+	</div>
+
+	</div>
+
+
+
+
+</body>
+
+</html>
+
+
