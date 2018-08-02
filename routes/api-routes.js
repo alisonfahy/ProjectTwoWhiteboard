@@ -21,7 +21,9 @@ module.exports = function (app) {
         db.Blob.create({
             name: req.body.name,
             description: req.body.description,
-            routeName: req.body.route,
+            routeName: req.body.routeName,
+            isPublic: req.body.isPublic,
+            pssw: req.body.pssw,
         })
             .then(function (dbPost) {
                 console.log(dbPost.dataValues.body)
@@ -51,15 +53,14 @@ module.exports = function (app) {
                 res.json(results);
             });
     });
-    
+
+
     // PUT route for updating posts
-    // this is dummy code from an example
-    app.put("/api/posts", function (req, res) {
-        db.Blob.update({
-            name: req.body.name,
-        }, {where: { id: 1}})
+    app.put("/api/posts/", function (req, res) {
+        db.Blob.update(req.body, {where: { routeName: req.body.routeName}})
             .then(function (dbPost) {
                 res.json(dbPost);
+                // console.log(dbPost);
             });
       });
 };

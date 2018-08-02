@@ -66,6 +66,7 @@ function newConnection(socket) {
     // when the user disconnects.. perform this
     socket.on('disconnect', function () {
         // echo globally that this client has left
+        console.log("left:", socket.room);
         socket.leave(socket.room);
     });
 
@@ -76,6 +77,17 @@ function newConnection(socket) {
         console.log("socket.room: ",socket.room);
         // socket.broadcast.emit('mouse', data);
         io.sockets.in(socket.room).emit('mouse', data);
+        console.log(data);
+    }
+
+
+    // socket color data
+    socket.on("color", colorMsg);
+
+    function colorMsg(data) {
+        console.log("socket.room: ", socket.room);
+        // socket.broadcast.emit('mouse', data);
+        io.sockets.in(socket.room).emit('color', data);
         console.log(data);
     }
 

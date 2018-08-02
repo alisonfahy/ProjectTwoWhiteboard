@@ -3,11 +3,14 @@
 
 html, body {
   height: 100%;
+  
 }
+
 
 body {
   font: 12px/1 'Montserrat', sans-serif;
-  color: #333;
+  /* color: #333; */
+  /* background: darkgray; */
   overflow-x: hidden;
 
   -webkit-touch-callout: none; /* iOS Safari */
@@ -19,7 +22,8 @@ body {
                                   supported by Chrome and Opera */
 
  /* whole page overflow hidden so there is no scrolling */
- overflow: hidden 
+ overflow: hidden;
+ cursor:url(https://s8.postimg.cc/5dn2c5qut/Marker.png), auto;
 }
 
 /* Side-Navigation Panel */
@@ -34,17 +38,28 @@ body {
   width: 220px;
 }
 
+/* force 0 padding to override inheritance */
+.nav{
+  padding: 0;
+}
+
 .content {
   -webkit-flex: 1;
   flex: 1;
   padding: 30px;
+  /* margin: 15px; */
   background:white;
+  -moz-box-shadow: 0 0 5px rgb(187, 179, 179);
+  -webkit-box-shadow: 0 0 5px rgb(187, 179, 179);
   box-shadow: 0 0 5px rgb(187, 179, 179);
   transform: translate3d(0,0,0);
   transition: all .3s;
   /* margin bottom to keep the page drop shadow border */
   margin-bottom: 15px;
 }
+
+
+
 
 .content.content-is-open {
   margin-left: 220px;
@@ -70,32 +85,37 @@ body {
   background:darkgray;
 }
 
-.nav li a {
+.nav button {
   position: relative;
   display: block;
   padding: 15px 15px 15px 50px;
   font-size: 12px;
   color: #222;
   border-bottom: 1px solid #222;
-  background-color: darkgray;
+  /* background-color: darkgray; */
+  border: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0px;
+  width: 100%;
+  flex-direction: column;
 
  
 }
 
-.nav li a:before {
+.nav li button:before {
   font: 14px fontawesome;
   position: absolute;
   top: 14px;
   left: 20px;
-  
 }
 
-.nav li:nth-child(1) a:before { content: '\f0fe'; }
-.nav li:nth-child(2) a:before { content: '\f086'; }
-.nav li:nth-child(3) a:before { content: '\f084'; }
+.nav li:nth-child(1) button:before { content: '\f0fe'; }
+.nav li:nth-child(2) button:before { content: '\f086'; }
+.nav li:nth-child(3) button:before { content: '\f085'; }
 
 
-.nav li a:hover {
+.nav li button:hover {
   background: lightgray;
 }
 
@@ -113,23 +133,165 @@ h1 {
   font-weight: 400;
 }
 
-h2 {
+.subtext{
   font-size: 18px;
   font-weight: 400;
-  color: #999;
 }
+
 .flex-container{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-
 }
 .siteHeading{
     margin-right: 30%;
-    font-size: 28px;
+    font-size: 22px;
+}
+/* Hides Forms Unitl Button is Clicked*/
+#formCreate {
+  display:none;
+}
+#formEnter {
+  display:none;
+}
+#formSettings {
+  display:none;
+}
+#formEnter,#formSettings{
+  display: none;
+}
+#formCreate,#formSettings{
+  display: none;
+}
+#formCreate,#formEnter{
+  display: none;
+}
+/* CSS For Toggle Switches*/
+.switch {
+  margin: 4rem auto;
+}
+/* main styles */
+.switch {
+  width: 24rem;
+  position: relative;
+}
+.switch input {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  opacity: 0;
+  cursor: pointer;
+}
+.switch input:checked {
+  z-index: 1;
+}
+.switch input:checked + label {
+  opacity: 1;
+  cursor: default;
 }
 
+.switch label {
+  color: black;
+  opacity: 0.40;
+  transition: opacity 0.25s ease;
+  cursor: pointer;
+}
+.switch .toggle-outside {
+  height: 18px;
+  border-radius: 2rem;
+  padding: 0.25rem;
+  overflow: hidden;
+  transition: 0.25s ease all;
+}
+.switch .toggle-inside {
+  border-radius: 5rem;
+  border-color: black;
+  background: #222;
+  position: absolute;
+  transition: 0.25s ease all;
+}
+.switch--horizontal {
+  width: 18rem;
+  height: 3rem;
+  margin: 0 auto;
+  font-size: 0;
+}
+.switch--horizontal input {
+  height: 3rem;
+  width: 6rem;
+  left: 4rem;
+  margin: 0;
+}
+.switch--horizontal label {
+  font-size: 12pt;
+  display: inline-block;
+  width: 3rem;
+  height: 100%;
+  margin: 0;
+  text-align: center;
+}
+.switch--horizontal label:last-of-type {
+  margin-left: 6rem;
+}
+.switch--horizontal .toggle-outside {
+  background: lightslategray;
+  position: absolute;
+  width: 67px;
+  left: 60px;
+}
+.switch--horizontal .toggle-inside {
+  height: 18px;
+  width: 18px;
+}
+.switch--horizontal input:checked ~ .toggle-outside .toggle-inside {
+  left: 0.25rem;
+}
+.switch--horizontal input ~ input:checked ~ .toggle-outside .toggle-inside {
+  left: 3.25rem;
+}
+/* Additional Form CSS */
+
+.formHeaders{
+  /* font-size: 26px;
+  margin-top: 80px; */
+  font-size: 12px;
+  line-height: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  color: #222;
+  /* background:darkgray; */
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+.formField{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 80%;
+  position: relative;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+
+
+  
+}
+.formButton{
+  background: #222;
+  color: #ffffff !important;
+  padding: 20px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  display: inline-block;
+  margin-top: 30px;
+  width: 80%;
+  margin-right: 10px;
+  margin-left: 10px;
+  letter-spacing: 3px;
+
+}
 
   /* color+download nav bar */
 		#colorNav{
@@ -169,3 +331,35 @@ h2 {
       background-color: black;
       color: white;
     }
+    
+    #colorNav{
+              display: flex;
+          }
+          #colorNav div{
+              width: 20%;
+              height: 30px;
+          }
+          #cred{
+              background-color: red;
+          }
+          #cblue{
+              background-color: blue;
+          }
+          #cgreen{
+              background-color: green;
+          }
+          #cblack{
+              background-color: black;
+          }
+          #cwhite{
+              background-color: white;
+              border: solid .02px black;
+          }
+          
+          .flex-container-subtext {
+            position: relative;
+            top: calc(100% - 130px);
+          }
+          h1, h2, h3 {
+           text-align: center;
+          }
