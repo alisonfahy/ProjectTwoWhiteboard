@@ -17,6 +17,8 @@ module.exports = function (app) {
     // POST route for creating a new table (room/studio)
     app.post("/api/posts", function (req, res) {
         // console.log("req. ","");
+        console.log(req.body);
+
         db.Blob.create({
             name: req.body.name,
             description: req.body.description,
@@ -24,10 +26,8 @@ module.exports = function (app) {
             isPublic: req.body.isPublic,
             pssw: req.body.pssw,
         })
-            .then(function (err, dbPost) {
-                if (err){
-                    console.log(err);
-                }
+            .then(function (dbPost) {
+                console.log("logged");
                 console.log(dbPost)
                 // console.log(dbPost.dataValues.body)
                 res.json(dbPost);

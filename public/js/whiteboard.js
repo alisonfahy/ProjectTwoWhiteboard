@@ -113,14 +113,19 @@ $(document).ready(function () {
                 pssw: $("#newStudioPssw").val().trim(),
             };
 
-            $.post("/api/posts", newBoard)
+            $.post("/api/posts", newBoard, function(data){
+                // log the data we found
+                console.log(data);
+                console.log("new whiteboard");
+                window.location.href = "/" + data.routeName;
+            });
                 // on success, run this callback
-                .then(function (data) {
-                    // log the data we found
-                    console.log(data);
-                    console.log("new whiteboard");
-                    window.location.href = "/" + data.routeName;
-                });
+                // .then(function (data) {
+                //     // log the data we found
+                //     console.log(data);
+                //     console.log("new whiteboard");
+                //     window.location.href = "/" + data.routeName;
+                // });
 
             console.log(newBoard);
 
