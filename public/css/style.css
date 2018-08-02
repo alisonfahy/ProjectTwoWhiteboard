@@ -119,7 +119,7 @@ body {
 .nav li:nth-child(1) button:before { content: '\f0fe'; }
 .nav li:nth-child(2) button:before { content: '\f086'; }
 .nav li:nth-child(3) button:before { content: '\f085'; }
-
+.nav li:nth-child(4) button:before { content: '\f00d'; }
 
 .nav li button:hover {
   border: 1px solid #d0d0d0;
