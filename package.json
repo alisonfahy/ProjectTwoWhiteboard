@@ -1,11 +1,11 @@
 {
     "name": "whiteboardtest",
     "version": "1.0.0",
-    "description": "",
+    "description": "white board chat rooms",
     "main": "server.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "nodemon server.js",
+        "start": "node server.js",
         "watch": "nodemon server.js"
     },
     "keywords": [],
