@@ -26,7 +26,6 @@ module.exports = function (app) {
             pssw: req.body.pssw,
         })
             .then(function (err, dbPost) {
-                if (err) throw err;
                 console.log(dbPost.dataValues.body)
                 res.json(dbPost);
             });
