@@ -9,6 +9,11 @@ $(document).ready(function () {
         // $(".sidebar").toggle();
         $('.content').toggleClass('content-is-open');
     });
+    
+    $('#buttonClose').on('click', function () {
+        // $(".sidebar").toggle();
+        $('.content').toggleClass('content-is-open');
+    });
 
     $('body').on('keypress', function (e) {
         if (e.keyCode == 109) {
@@ -38,7 +43,7 @@ $(document).ready(function () {
     });
 
     var enterButton = $("#submitEnterStudio");
-
+    
     // board search get request for dummy form
     enterButton.on("click", function (e) {
         e.preventDefault();
@@ -64,6 +69,16 @@ $(document).ready(function () {
     // console.log(radios);
     var isPublic;
 
+    radios.on("click",function(){
+
+        if(radios[0].checked){
+            $("#newStudioName").val("");
+        }
+        else{
+            $("#newStudioName").val(makeId());
+        }
+    });
+
     // post request for new form
     $("#submitNewStudio").on("click", function (e) {
         e.preventDefault();
@@ -76,33 +91,47 @@ $(document).ready(function () {
                 break;
             }
         }
-
+        
         var routeName = $("#newStudioName").val().trim();
         routeName = routeName.replace(/\s+/g, '');
 
-        var newBoard = {
-            name: $("#newStudioName").val().trim(),
-            routeName: routeName,
-            isPublic: isPublic,
-            description: $("#newStudioDesc").val().trim(),
-            pssw: $("#newStudioPssw").val().trim(),
-        };
+        $.get("/api/" + routeName, function (data) {
+            // log the data to our console
+            if (data) {
+                // console.log(data[0].routeName);
+                $("#newStudioName").val("Studio exists. Create new studio.");
+                // window.location.href = "/" + data.routeName;
+                // console.log(data);
+            }
+            else {
+           
+            var newBoard = {
+                name: $("#newStudioName").val().trim(),
+                routeName: routeName,
+                isPublic: isPublic,
+                description: $("#newStudioDesc").val().trim(),
+                pssw: $("#newStudioPssw").val().trim(),
+            };
 
-        $.post("/api/posts", newBoard)
-            // on success, run this callback
-            .then(function (data) {
-                // log the data we found
-                console.log(data);
-                console.log("new whiteboard");
-                window.location.href = "/" + data.routeName;
-            });
+            $.post("/api/posts", newBoard)
+                // on success, run this callback
+                .then(function (data) {
+                    // log the data we found
+                    console.log(data);
+                    console.log("new whiteboard");
+                    window.location.href = "/" + data.routeName;
+                });
 
-        console.log(newBoard);
+            console.log(newBoard);
 
-        // empty each input box by replacing the value with an empty string
-        $("#newStudioName").val("");
-        $("#newStudioDesc").val("");
-        $("#newStudioPssw").val("");
+            // empty each input box by replacing the value with an empty string
+            $("#newStudioName").val("");
+            $("#newStudioDesc").val("");
+            $("#newStudioPssw").val("");
+
+            }
+        });
+
 
     });
 
@@ -205,14 +234,14 @@ $(document).ready(function () {
 
     // random string generator
 
-    // $("#route").on("click", function makeid() {
-    //     var text = "";
-    //     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    function makeId() {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-    //     for (var i = 0; i < 20; i++)
-    //         text += possible.charAt(Math.floor(Math.random() * possible.length));
-    //     console.log(text);
-    //     return text;
-    // })
+        for (var i = 0; i < 20; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+        console.log(text);
+        return text;
+    };
     
 });

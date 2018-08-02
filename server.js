@@ -50,7 +50,6 @@ function newConnection(socket) {
 
     console.log('new connection', socket.id);
 
-
     socket.on('switchRoom', function (newroom) {
         // leave the current room (stored in session)
         socket.leave(socket.room);
@@ -90,5 +89,4 @@ function newConnection(socket) {
         io.sockets.in(socket.room).emit('color', data);
         console.log(data);
     }
-
 }

@@ -201,41 +201,74 @@ function keyPressed() {
 	console.log("keypress func")
 	console.log(keyCode);
 
-	if (keyCode == 82) {
-		console.log("Red")
+	if (keyCode == 49) {
+		console.log("Red") // 3 = red
 		c = color(255, 0, 0);
 		r = 255; g = 0; b = 0;
-		
-	} else if (keyCode == 71) {
-		console.log("Green")
+
+	} else if (keyCode == 50) {
+
+		console.log("Green") // 4 = green
 		c = color(14, 126, 18);
 		r = 14; g = 126; b = 18;
-		
-	} else if (keyCode == 66) {
-		console.log("Blue")
+
+
+	} else if (keyCode == 51) {
+
+		console.log("Blue") // 5 = blue
 		c = color(0, 0, 255);
 		r = 0; g = 0; b = 255;
-		
-	} else if (keyCode == 75) {
-		console.log("key/black");
+
+
+	} else if (keyCode == 52) {
+		console.log("key/black"); //1 = black
 		c = color(0, 0, 0);
 		r = 0; g = 0; b = 0;
-		
-	} else if (keyCode == 87) {
-		console.log("white");
+
+	} else if (keyCode == 53) {
+		console.log("white"); // 2 = white
 		c = color(255, 255, 255);
 		r = 255; g = 255; b = 255;
 
+	} else if (keyCode == 54) {
+
+		console.log("Cyan"); // 7 = cyan
+		c = color(0, 255, 255);
+		r = 0; g = 255; b = 255;
+
+	} else if (keyCode == 55) {
+
+		console.log("Magenta"); // 8 = magenta
+		c = color(255, 0, 255);
+		r = 255; g = 0; b = 255;
+
+	} else if (keyCode == 56) {
+
+		console.log("Yellow"); // 6 = yellow
+		c = color(255, 255, 0);
+		r = 255; g = 255; b = 0;
+
+	} else if (keyCode == 57) {
+		console.log("Purple"); // 9 = purple
+		c = color(128, 0, 128);
+		r = 128; g = 0; b = 128;
+
+	} else if (keyCode == 48) {
+		console.log("Orange"); // 0 = orange
+		c = color(255, 165, 0);
+		r = 255; g = 165; b = 0;
+
 	} else if (keyCode == 38 || keyCode == 39) {
 		console.log("up");
-		if (sliderPos !== 51){
-			console.log("sliderPos: ",sliderPos);
+		if (sliderPos !== 51) {
+			console.log("sliderPos: ", sliderPos);
 			sliderPos += 5;
 		}
+
 	} else if (keyCode == 37 || keyCode == 40) {
 		console.log("down");
 		if (sliderPos !== 1) {
-			console.log("sliderPos: ",sliderPos);
+			console.log("sliderPos: ", sliderPos);
 			sliderPos -= 5;
 		}
 	}
