@@ -10,7 +10,6 @@ html, body {
 body {
   font: 12px/1 'Montserrat', sans-serif;
   /* color: #333; */
-  /* background: darkgray; */
   overflow-x: hidden;
 
   -webkit-touch-callout: none; /* iOS Safari */
@@ -22,7 +21,8 @@ body {
                                   supported by Chrome and Opera */
 
  /* whole page overflow hidden so there is no scrolling */
- overflow: hidden 
+ overflow: hidden;
+
 }
 
 /* Side-Navigation Panel */
@@ -30,16 +30,23 @@ body {
   display: -webkit-flex;
   display: flex;
   min-height: 100%;
+  
+
 }
 
 .sidebar {
   position: absolute;
   width: 220px;
+
+
+
 }
 
 /* force 0 padding to override inheritance */
 .nav{
   padding: 0;
+  
+
 }
 
 .content {
@@ -74,24 +81,24 @@ body {
 /* Items in Navigation Panel*/
 
 .title {
-  font-size: 16px;
-  line-height: 50px;
+  font: 28px/1 'Montserrat', sans-serif;
+  font-weight: 700;
+  line-height: 30px;
   text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 7px;
+  /* text-transform: uppercase; */
   color: #222;
-  border-bottom: 1px solid #222;
-  background:darkgray;
+  padding-bottom: 10px;
+  padding-top: 15px;
+  border-bottom: 3px solid #222;
 }
 
 .nav button {
+  font: 14px/1 'Montserrat', sans-serif;
   position: relative;
   display: block;
   padding: 15px 15px 15px 50px;
-  font-size: 12px;
   color: #222;
   border-bottom: 1px solid #222;
-  /* background-color: darkgray; */
   border: 0;
   background: none;
   box-shadow: none;
@@ -115,7 +122,7 @@ body {
 
 
 .nav li button:hover {
-  background: lightgray;
+  border: 1px solid #d0d0d0;
 }
 
 ul{ 
@@ -234,7 +241,8 @@ h1 {
   margin-left: 6rem;
 }
 .switch--horizontal .toggle-outside {
-  background: lightslategray;
+  background: white;
+  border: 2px solid black;
   position: absolute;
   width: 67px;
   left: 60px;
@@ -254,18 +262,18 @@ h1 {
 .formHeaders{
   /* font-size: 26px;
   margin-top: 80px; */
-  font-size: 12px;
+  font: 20px/1 'Montserrat', sans-serif;
   line-height: 50px;
   text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 6px;
+  font-weight: 700;
   color: #222;
-  /* background:darkgray; */
-  margin-top: 20px;
-  margin-bottom: 25px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border-top: 1px solid black;
 }
 
 .formField{
+  font: 12px/1 'Montserrat', sans-serif;
   margin-top: 15px;
   margin-bottom: 15px;
   width: 80%;
@@ -273,23 +281,25 @@ h1 {
   align-items: center;
   margin-left: 10px;
   margin-right: 10px;
+  border: 1px solid black;
 
 
   
 }
 .formButton{
-  background: #222;
-  color: #ffffff !important;
-  padding: 20px;
-  text-transform: uppercase;
-  border-radius: 3px;
+  font: 14px/1 'Montserrat', sans-serif;
+  padding: 10px;
+  border: 3px solid black;
   display: inline-block;
-  margin-top: 30px;
+  margin-top: 10px;
   width: 80%;
   margin-right: 10px;
   margin-left: 10px;
-  letter-spacing: 3px;
 
+}
+.formButton:hover{
+  background-color: black;
+  color: white;
 }
 
   /* color+download nav bar */
