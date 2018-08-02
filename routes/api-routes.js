@@ -14,10 +14,9 @@ var bodyParser = require("body-parser");
 // =============================================================
 module.exports = function (app) {
 
-
     // POST route for creating a new table (room/studio)
     app.post("/api/posts", function (req, res) {
-        console.log("req. ","");
+        // console.log("req. ","");
         db.Blob.create({
             name: req.body.name,
             description: req.body.description,
@@ -26,7 +25,11 @@ module.exports = function (app) {
             pssw: req.body.pssw,
         })
             .then(function (err, dbPost) {
-                console.log(dbPost.dataValues.body)
+                if (err){
+                    console.log(err);
+                }
+                console.log(dbPost)
+                // console.log(dbPost.dataValues.body)
                 res.json(dbPost);
             });
     });
