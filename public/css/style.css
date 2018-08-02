@@ -3,12 +3,14 @@
 
 html, body {
   height: 100%;
+  
 }
+
 
 body {
   font: 12px/1 'Montserrat', sans-serif;
-  color: #333;
-  background: darkgray;
+  /* color: #333; */
+  /* background: darkgray; */
   overflow-x: hidden;
 
   -webkit-touch-callout: none; /* iOS Safari */
@@ -35,17 +37,28 @@ body {
   width: 220px;
 }
 
+/* force 0 padding to override inheritance */
+.nav{
+  padding: 0;
+}
+
 .content {
   -webkit-flex: 1;
   flex: 1;
   padding: 30px;
+  /* margin: 15px; */
   background:white;
+  -moz-box-shadow: 0 0 5px rgb(187, 179, 179);
+  -webkit-box-shadow: 0 0 5px rgb(187, 179, 179);
   box-shadow: 0 0 5px rgb(187, 179, 179);
   transform: translate3d(0,0,0);
   transition: all .3s;
   /* margin bottom to keep the page drop shadow border */
   margin-bottom: 15px;
 }
+
+
+
 
 .content.content-is-open {
   margin-left: 220px;
@@ -78,7 +91,7 @@ body {
   font-size: 12px;
   color: #222;
   border-bottom: 1px solid #222;
-  background-color: darkgray;
+  /* background-color: darkgray; */
   border: 0;
   background: none;
   box-shadow: none;
@@ -94,7 +107,6 @@ body {
   position: absolute;
   top: 14px;
   left: 20px;
-  
 }
 
 .nav li:nth-child(1) button:before { content: '\f0fe'; }
@@ -130,11 +142,10 @@ h1 {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-
 }
 .siteHeading{
     margin-right: 30%;
-    font-size: 28px;
+    font-size: 22px;
 }
 /* Hides Forms Unitl Button is Clicked*/
 #formCreate {
@@ -180,7 +191,7 @@ h1 {
 }
 
 .switch label {
-  color: white;
+  color: black;
   opacity: 0.40;
   transition: opacity 0.25s ease;
   cursor: pointer;
@@ -194,6 +205,7 @@ h1 {
 }
 .switch .toggle-inside {
   border-radius: 5rem;
+  border-color: black;
   background: #222;
   position: absolute;
   transition: 0.25s ease all;
@@ -222,7 +234,7 @@ h1 {
   margin-left: 6rem;
 }
 .switch--horizontal .toggle-outside {
-  background: #fff;
+  background: lightslategray;
   position: absolute;
   width: 67px;
   left: 60px;
@@ -248,7 +260,7 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 6px;
   color: #222;
-  background:darkgray;
+  /* background:darkgray; */
   margin-top: 20px;
   margin-bottom: 25px;
 }

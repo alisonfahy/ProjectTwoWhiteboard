@@ -6,7 +6,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>White Board Studio</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" media="screen" href="./css/reset.css" />
+	<!-- removed reset -->
+	<!-- <link rel="stylesheet" type="text/css" media="screen" href="./css/reset.css" /> -->
 	<link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
 
 	<script src="libraries/p5.js"></script>
@@ -39,12 +40,13 @@
 				</li>
 			</ul>
 			<form id="formCreate">
+				<!-- Form for Creating a Studio -->
 				<h2 class="formHeaders">Create Studio</h2>
 				<div class="container">
 					<div class="switch switch--horizontal">
-						<input id="radio-a" type="radio" name="first-switch" checked="checked" />
+						<input id="radio-a" type="radio" name="first-switch" checked="checked" value="1" id="radioPublic"/>
 						<label for="radio-a">Public</label>
-						<input id="radio-b" type="radio" name="first-switch" />
+						<input id="radio-b" type="radio" name="first-switch" value="0" id="radioPrivate"/>
 						<label for="radio-b">Private</label>
 						<span class="toggle-outside">
 							<span class="toggle-inside"></span>
@@ -52,27 +54,56 @@
 					</div>
 				</div>
 				<b>Studio Name: </b>
-				<input class="formField" type="text" name="studioName">
+				<input class="formField" type="text" name="studioName" id="newStudioName">
+				<b>Short Description: </b>
+				<textarea class="formField" type="text" name="studioDescription" id="newStudioDesc"></textarea>
 				<b>Password: </b>
-				<input class="formField" type="text" name="studioPassword">
-				<button class="formButton" type="button" id="submit">Create Studio</button>
+				<input class="formField" type="text" name="studioPassword" id="newStudioPssw">
+				<button class="formButton" type="button" id="submitNewStudio">Create Studio</button>
 			</form>
 			<!-- Form for Entering a Pre-Existing Studio -->
 			<form id="formEnter">
 				<h2 class="formHeaders">Enter Studio</h2>
 				<b>Studio Name: </b>
-				<input class="formField" type="text" name="studioName">
+				<input class="formField" type="text" name="studioName" id ="studioName">
 				<b>Password: </b>
 				<input class="formField" type="text" name="studioPassword">
-				<button class="formButton" type="button" id="submit">Enter Studio</button>
+				<button class="formButton" type="button" id="submitEnterStudio">Enter Studio</button>
 			</form>
 			<!-- Form for Entering Settings -->
 			<form id="formSettings">
 				<h2 class="formHeaders">Settings</h2>
-				<p>Admin access is required to adjust settings.</p>
-				<b>Password:</b>
-				<input class="formField" type="text" name="studioPassword">
-				<button class="formButton" type="button" id="submit">Submit</button>
+				<div id="updatePsswForm">
+
+					<p>Admin access is required to adjust settings.</p>
+					<b>Password:</b>
+					<input class="formField" type="text" name="studioPassword" id="adminPssw">
+				</div>
+
+				<!-- admin field for when pssw match (update form) -->
+				<div id="admin">
+					<div class="container">
+						<div class="switch switch--horizontal">
+							<input id="radio-a" type="radio" name="second-switch" checked="checked" value="1" />
+							<label for="radio-a">Public</label>
+							<input id="radio-b" type="radio" name="second-switch" value="0" />
+							<label for="radio-b">Private</label>
+							<span class="toggle-outside">
+								<span class="toggle-inside"></span>
+							</span>
+						</div>
+					</div>
+					<b>Studio Name: </b>
+					<input class="formField" type="text" name="updateStudioName" id="updateStudioName">
+					<b>Short Description: </b>
+					<textarea class="formField" type="text" name="updateStudioDescription" id="updateStudioDesc"></textarea>
+					<b>Password: </b>
+					<input class="formField" type="text" name="updateStudioPassword" id="updateStudioPssw">
+				</div>
+
+
+				<button class="formButton" type="button" id="submitPssw">Submit Password</button>
+				<button class="formButton" type="button" id="submitUpdate">Submit Update</button>
 			</form>
 		</div>
 
@@ -109,7 +140,7 @@
 				<h2 class="hoverhide">To begin, find an exisiting studio or create a new one.</h2>
 
 
-				<!-- dummy form for rooms/table generating -->
+				<!-- dummy form for rooms/table generation -->
 
 				<!-- <div>
 							<b>ROOMS</b>

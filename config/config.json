@@ -1,24 +1,24 @@
 {
   "development": {
     "username": "root",
-    "password": "",
-    "database": "",
+    "password": "root",
+    "database": "blobTest",
     "host": "localhost",
     "port": 8889,
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "",
-    "database": "",
+    "password": "root",
+    "database": "blobTest",
     "host": "localhost",
     "port": 8889,
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "",
-    "database": "",
+    "password": "root",
+    "database": "blobTest",
     "host": "localhost",
     "port": 8889,
     "dialect": "mysql"

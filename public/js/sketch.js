@@ -1,23 +1,34 @@
-var socket;
+// global variables
 
-var canvas;
+	var socket;
+	var canvas;
 
-var c, r, g, b;
+	var c, r, g, b, sliderVal;
+	var sliderPos = 26;
 
 // setup for page start
 function setup() {
 	canvas = createCanvas(windowWidth - 15, windowHeight - 15);
+	// pixelDensity(1);
 
-	canvas.position(0,0);
-	canvas.style("z-index", "-1");
-	canvas.parent("contentDiv");
+	//canvas positioned on content div
+		canvas.position(0,0);
+		canvas.style("z-index", "-1");
+		canvas.parent("contentDiv");
+
+	// slider = createSlider(1, 50, 25);
+	// slider.position(320, 360);
+	// sliderVal = slider.value();
+
+	var getImg = get();
+	// console.log(getImg);
 
 	// set color to black on load
 		c = color(0);
 		r = 0; g = 0; b = 0;
 
 	// load the dummy image to the page
-		img = loadImage("./images/canvasTest.png");
+		// img = loadImage("./images/canvasTest.png");
 
 	// download button
 		var button = $("#btn-download");
@@ -27,7 +38,6 @@ function setup() {
 		});
 
 	// canvas.parent('sketch-holder');
-
 
 	// socket io connection ideas
 		// use ip address
@@ -52,59 +62,9 @@ function setup() {
 		console.log("currentRoomName: ",currentRoomName);
 
 	
-	// board search get request for dummy form
-		// $.get("/api/" + boardSearch, function (data) {
-		// 	if(data){
-		// 	// log the data to our console
-		// 	console.log(data);
-		// 	console.log(data.routeName);
-		// 	switchRoom(data.routeName);
-		// 	}
-		// 	else{
-		// 		switchRoom("default");
-		// 	}
-		// });
-
-	//board search get request for dummy form
-		// $("#boardButton").on("click", function(){
-		// 	var boardSearch = $("#boardSearch").val().trim();
-		// 	$.get("/api/" + boardSearch, function (data) {
-		// 		// log the data to our console
-		// 		console.log(data);
-		// 		console.log(data.routeName);
-		// 		switchRoom(data.routeName);
-		// 	});
-		// });
 
 	// socket connection for "mouse"
 		socket.on("mouse", newDrawing);
-
-	// post request for the dummy form
-		$("#test").on("click",function(e){
-			e.preventDefault();
-			console.log("test");
-			var newBoard = {
-				name: $("#name").val().trim(),
-				description: $("#description").val().trim(),
-				route: $("#route").val().trim(),
-		};
-
-		$.post("/api/posts", newBoard)
-			// on success, run this callback
-			.then(function (data) {
-				// log the data we found
-				console.log(data);
-				// tell the user we're adding a character with an alert window
-				alert("new whiteboard");
-			});
-
-		// empty each input box by replacing the value with an empty string
-		$("#route").val("");
-		$("#description").val("");
-		$("#route").val("");
-
-	});
-
 
 
 	function switchRoom(room) {
@@ -112,77 +72,87 @@ function setup() {
 		console.log("room: ",room);
 	}
 
-	var red = select("#cred")
-	red.mousePressed(function () {
+	// color buttons
+		var red = select("#cred")
+		red.mousePressed(function () {		
+			c = color(255,0,0);
+			r = 255; g = 0; b = 0;
 		
-		c = color(255,0,0);
-		r = 255; g = 0; b = 0;
-	});
+		});
 
-	var green = select("#cgreen")
-	green.mousePressed(function () {
-		c = color(14, 126, 18);
-		r = 14; g = 126; b = 18;
-	});
+		var green = select("#cgreen")
+		green.mousePressed(function () {
+			c = color(14, 126, 18);
+			r = 14; g = 126; b = 18;
+			
+		});
 
-	var blue = select("#cblue")
-	blue.mousePressed(function () {
-		c = color(0, 0, 255);
-		r = 0; g = 0; b = 255;
-	});
+		var blue = select("#cblue")
+		blue.mousePressed(function () {
+			c = color(0, 0, 255);
+			r = 0; g = 0; b = 255;
+			
+		});
 
-	var black = select("#cblack")
-	black.mousePressed(function () {
-		c = color(0, 0, 0);
-		r = 0; g = 0; b = 0;
-	});
-	var white = select("#cwhite")
-	white.mousePressed(function () {
-		c = color(255, 255, 255);
-		r = 255; g = 255; b = 255;
-	});
+		var black = select("#cblack")
+		black.mousePressed(function () {
+			c = color(0, 0, 0);
+			r = 0; g = 0; b = 0;
+		
+		});
+		var white = select("#cwhite")
+		white.mousePressed(function () {
+			c = color(255, 255, 255);
+			r = 255; g = 255; b = 255;
+			
+		});
 
-//setup for page end
+//end of setup for page
 }
 
 // resize canvas on window resize
-function windowResized() {
-	resizeCanvas(windowWidth - 15, windowHeight - 15);
-}
+	function windowResized() {
+		resizeCanvas(windowWidth - 15, windowHeight - 15);
+	}
 
 //download function
-function download() {
-	saveCanvas(canvas, "canvas.png");
-}
+	function download() {
+		saveCanvas(canvas, "canvas.png");
+	}
 
 // new drawing function triggers by socket mouse data received
-function newDrawing(data){
-	noStroke();
-	var mouseColor = color(data.r, data.g, data.b);
-	fill(mouseColor);
+	function newDrawing(data){
 
-		stroke(mouseColor);
-		strokeWeight(50);
-		line(data.px, data.py, data.x, data.y);
-	
-}
+		socket.on("color", function(data){
+				c = color(data.r, data.g,data.b);
+			});
+		// socket.on("slider", function (data) {
+		// 		sliderVal = data.sliderValue;
+		// 	});
+
+		// noStroke();
+		// var mouseColor = color(data.r, data.g, data.b);
+
+			fill(c);
+			stroke(c);
+			strokeWeight(data.s);
+			line(data.px, data.py, data.x, data.y);
+	}
 
 //mouse dragged triggers socket emit
 function mouseDragged(){
 	// console.log(mouseX, mouseY);
 
 	var data = {
-		r: r,
-		g: g,
-		b: b,
 		px: pmouseX,
 		py: pmouseY,
 		x: mouseX,
-		y: mouseY
+		y: mouseY,
+		s: sliderPos,
 	}
 
 	if (mouseX < windowWidth && mouseX > 0 && mouseY < windowHeight && mouseY > 0){
-		socket.emit("mouse",data);
+		socket.emit("mouse", data);
 	}
 	// noStroke();
 	// fill(c);
@@ -193,32 +163,80 @@ function mouseDragged(){
 function mousePressed(){
 
 	var data = {
-		r: r,
-		g: g,
-		b: b,
 		px: pmouseX,
 		py: pmouseY,
 		x: mouseX,
-		y: mouseY
+		y: mouseY,
+		s: sliderPos,
 	}
-
+	var colorData = {
+		r: r,
+		g: g,
+		b: b,
+	}
+	
+	socket.emit('color',colorData);
 	socket.emit("mouse", data);
 
 	console.log(mouseX, mouseY);
-	noStroke();
-	fill(c);
-	ellipse(mouseX, mouseY, 10, 10)
+	// noStroke();
+	// fill(c);
+	// ellipse(mouseX, mouseY, 10, 10)
 }
 
 // drawing section constantly redraws to canvas
 function draw() {
-	// background(bg, windowWidth, windowHeight);
 
 	if (mouseIsPressed) {
 		stroke(c);
-		strokeWeight(50);
+		strokeWeight(sliderPos);
 		line(pmouseX, pmouseY, mouseX, mouseY);
 	}
 
-	image(img, 0, 0);
+} 
+
+
+// button pressed to change colors/slider values
+function keyPressed() {
+	console.log("keypress func")
+	console.log(keyCode);
+
+	if (keyCode == 82) {
+		console.log("Red")
+		c = color(255, 0, 0);
+		r = 255; g = 0; b = 0;
+		
+	} else if (keyCode == 71) {
+		console.log("Green")
+		c = color(14, 126, 18);
+		r = 14; g = 126; b = 18;
+		
+	} else if (keyCode == 66) {
+		console.log("Blue")
+		c = color(0, 0, 255);
+		r = 0; g = 0; b = 255;
+		
+	} else if (keyCode == 75) {
+		console.log("key/black");
+		c = color(0, 0, 0);
+		r = 0; g = 0; b = 0;
+		
+	} else if (keyCode == 87) {
+		console.log("white");
+		c = color(255, 255, 255);
+		r = 255; g = 255; b = 255;
+
+	} else if (keyCode == 38 || keyCode == 39) {
+		console.log("up");
+		if (sliderPos !== 51){
+			console.log("sliderPos: ",sliderPos);
+			sliderPos += 5;
+		}
+	} else if (keyCode == 37 || keyCode == 40) {
+		console.log("down");
+		if (sliderPos !== 1) {
+			console.log("sliderPos: ",sliderPos);
+			sliderPos -= 5;
+		}
+	}
 }
