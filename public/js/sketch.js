@@ -52,7 +52,7 @@ function setup() {
 
 	// check current url and switch to that room if exists
 		var currentUrl = $(location).attr('href');
-		var currentRoomName = currentUrl.replace("http://localhost:8080/", "");
+	var currentRoomName = currentUrl.replace("https://whiteboardstudio.herokuapp.com/", "");
 		if(currentRoomName === ""){
 			switchRoom("default");
 		}
