@@ -138,7 +138,7 @@ $(document).ready(function () {
     // current url and room transfer
     var currentUrl = $(location).attr('href');
     console.log(currentUrl);
-    var currentRoomName = currentUrl.replace("http://localhost:8080/", "");
+    var currentRoomName = currentUrl.replace("https://whiteboardstudio.herokuapp.com/", "");
 
 
 
