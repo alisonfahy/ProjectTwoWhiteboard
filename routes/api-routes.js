@@ -25,7 +25,8 @@ module.exports = function (app) {
             isPublic: req.body.isPublic,
             pssw: req.body.pssw,
         })
-            .then(function (dbPost) {
+            .then(function (err, dbPost) {
+                if (err) throw err;
                 console.log(dbPost.dataValues.body)
                 res.json(dbPost);
             });
