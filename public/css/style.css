@@ -22,7 +22,8 @@ body {
                                   supported by Chrome and Opera */
 
  /* whole page overflow hidden so there is no scrolling */
- overflow: hidden 
+ overflow: hidden;
+ cursor:url(https://s8.postimg.cc/5dn2c5qut/Marker.png), auto;
 }
 
 /* Side-Navigation Panel */
@@ -330,3 +331,35 @@ h1 {
       background-color: black;
       color: white;
     }
+    
+    #colorNav{
+              display: flex;
+          }
+          #colorNav div{
+              width: 20%;
+              height: 30px;
+          }
+          #cred{
+              background-color: red;
+          }
+          #cblue{
+              background-color: blue;
+          }
+          #cgreen{
+              background-color: green;
+          }
+          #cblack{
+              background-color: black;
+          }
+          #cwhite{
+              background-color: white;
+              border: solid .02px black;
+          }
+          
+          .flex-container-subtext {
+            position: relative;
+            top: calc(100% - 130px);
+          }
+          h1, h2, h3 {
+           text-align: center;
+          }
