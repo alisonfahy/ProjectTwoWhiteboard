@@ -5,8 +5,8 @@ $(document).ready(function () {
         $("#admin").hide();
         $("#submitUpdate").hide();
 
+
     $('.side-panel-toggle').on('click', function () {
-        // $(".sidebar").toggle();
         $('.content').toggleClass('content-is-open');
     });
     
@@ -15,11 +15,31 @@ $(document).ready(function () {
         $('.content').toggleClass('content-is-open');
     });
 
-    $('body').on('keypress', function (e) {
-        if (e.keyCode == 109) {
-            $('.content').toggleClass('content-is-open');
-        }
-    });
+
+    
+        $('body').on('keypress', function (e) {
+            if (e.keyCode == 109 && closed) {
+                $('.content').toggleClass('content-is-open');
+                }
+            });
+    
+
+    //check whether an input field is in use and disable keypresses
+        var closed = true;
+
+        $("input").focus(function(){
+            closed = false;
+        });
+        $("input").blur(function(){
+            closed = true;
+        });
+        $("textarea").focus(function () {
+            closed = false;
+        });
+        $("textarea").blur(function () {
+            closed = true;
+        });
+
 
     //   Toggles the form depending on button clicked.
     $("#buttonCreate").click(function () {
@@ -42,6 +62,7 @@ $(document).ready(function () {
         $('.hoverhide').fadeOut(750);
     });
 
+    
     var enterButton = $("#submitEnterStudio");
     
     // board search get request for dummy form

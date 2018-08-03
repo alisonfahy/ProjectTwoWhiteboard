@@ -22,8 +22,22 @@ body {
 
  /* whole page overflow hidden so there is no scrolling */
  overflow: hidden;
+ /* cursor:url(https://s8.postimg.cc/5dn2c5qut/Marker.png), auto; */
 
 }
+
+h1, h2, h3 {
+    text-align: center;
+  }
+
+.flex-container-subtext h2 {
+    padding: 12px;
+    /* max-width: 400px; */
+    margin: 0 auto;
+  }
+  #welcome{
+    padding-top: 50px;
+  }
 
 /* Side-Navigation Panel */
 .wrapper {
@@ -31,15 +45,11 @@ body {
   display: flex;
   min-height: 100%;
   
-
 }
 
 .sidebar {
   position: absolute;
   width: 220px;
-
-
-
 }
 
 /* force 0 padding to override inheritance */
@@ -63,8 +73,6 @@ body {
   /* margin bottom to keep the page drop shadow border */
   margin-bottom: 15px;
 }
-
-
 
 
 .content.content-is-open {
@@ -151,7 +159,8 @@ h1 {
     justify-content: space-between;
 }
 .siteHeading{
-    margin-right: 30%;
+    /* margin-right: 30%; */
+    margin: 0 auto;
     font-size: 22px;
 }
 /* Hides Forms Unitl Button is Clicked*/
@@ -303,13 +312,17 @@ h1 {
 }
 
   /* color+download nav bar */
-		#colorNav{
-			display: flex;
-		}
+    #colorNav {
+        display: flex;
+        position: fixed;
+        left: 25px;
+        right: 25px;
+        bottom: 25px;
+      }
 		#colorNav div{
 			width: 20%;
-			height: 30px;
-		}
+      height: 30px;
+    }
 		#cred{
 			background-color: red;
 		}
@@ -323,7 +336,11 @@ h1 {
 			background-color: black;
 		}
 		#cwhite{
-			background-color: white;
+      box-sizing: border-box;
+      height: 26px;
+      background-color: white;
+      border-top: 3px solid black;
+      border-bottom: 3px solid black;
     }
     #btn-download{
       border: 3px solid black;
@@ -340,3 +357,7 @@ h1 {
       background-color: black;
       color: white;
     }
+
+    
+
+  

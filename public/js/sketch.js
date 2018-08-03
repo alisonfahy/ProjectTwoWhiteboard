@@ -72,6 +72,8 @@ function setup() {
 		console.log("room: ",room);
 	}
 
+	
+
 	// color buttons
 		var red = select("#cred")
 		red.mousePressed(function () {		
@@ -194,7 +196,6 @@ function draw() {
 	}
 
 } 
-
 
 // button pressed to change colors/slider values
 function keyPressed() {
