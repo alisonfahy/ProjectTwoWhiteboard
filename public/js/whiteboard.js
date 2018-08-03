@@ -5,6 +5,8 @@ $(document).ready(function () {
         $("#admin").hide();
         $("#submitUpdate").hide();
 
+        
+
 
     $('.side-panel-toggle').on('click', function () {
         $('.content').toggleClass('content-is-open');
@@ -61,6 +63,24 @@ $(document).ready(function () {
     $('.hoverhide').mouseover(function () {
         $('.hoverhide').fadeOut(750);
     });
+    setTimeout(function () {
+        $("#mainTitle").fadeTo("slow", 0);
+        $('.hoverhide').fadeOut(750);
+    }, 10000);
+
+
+    function wordCheck(word) {
+        var check = false;
+        var wordSearch = ["", "Please search for a studio", "Studio not found", "Studio exists. Create new studio.","Enter valid name.", undefined];
+        
+        for (i = 0; i < wordSearch.length; i++) {
+            if (word === wordSearch[i]) {
+                check = true;
+                break;
+            };
+        }
+        return check;
+    }
 
     
     var enterButton = $("#submitEnterStudio");
@@ -71,19 +91,27 @@ $(document).ready(function () {
         var search;
         search = $("#studioName").val().trim();
         console.log($("#studioName").val().trim());
-        search = search.replace(/\s+/g, '');
-        console.log("boardSearch: ",search);
-        $.get("/api/" + search, function (data) {
-            // log the data to our console
-            if(data){
-                // console.log(data[0].routeName);
-                window.location.href = "/" + data.routeName;
-                // console.log(data);
+        
+        if (wordCheck(search)) {
+            $('input[name="studioName"]').val("Please search for a studio");
+        } else {
+
+            search = search.replace(/\s+/g, '');
+            console.log("boardSearch: ", search);
+
+            $.get("/api/" + search, function (data) {
+                // log the data to our console
+                console.log(data);
+                if(data){
+                    console.log(data.routeName);
+                    // window.location.href = "/" + data.routeName;
+                    // console.log(data);
+                }
+                else{
+                    $('input[name="studioName"]').val("Studio not found");
+                }
+                });
             }
-            else{
-                $('input[name="studioName"]').val("Table not found");
-            }
-        });
     });
 
     var radios = $('input[name="first-switch"]');
@@ -112,53 +140,63 @@ $(document).ready(function () {
                 break;
             }
         }
-        
+
         var routeName = $("#newStudioName").val().trim();
-        routeName = routeName.replace(/\s+/g, '');
 
-        $.get("/api/" + routeName, function (data) {
-            // log the data to our console
-            if (data) {
-                // console.log(data[0].routeName);
-                $("#newStudioName").val("Studio exists. Create new studio.");
-                // window.location.href = "/" + data.routeName;
-                // console.log(data);
-            }
-            else {
-           
-            var newBoard = {
-                name: $("#newStudioName").val().trim(),
-                routeName: routeName,
-                isPublic: isPublic,
-                description: $("#newStudioDesc").val().trim(),
-                pssw: $("#newStudioPssw").val().trim(),
-            };
+        if(wordCheck(routeName)){
+            $("#newStudioName").val("Enter valid name.");
+        }
+        else{
 
-            $.post("/api/posts", newBoard, function(data){
-                // log the data we found
-                console.log(data);
-                console.log("new whiteboard");
-                window.location.href = "/" + data.routeName;
+            if ($("#newStudioPssw").val().trim() === "" || $("#newStudioPssw").val().trim() === "Please enter password"){
+                $("#newStudioPssw").val("Please enter password");
+            } else {
+
+            routeName = routeName.replace(/\s+/g, '');
+
+            $.get("/api/" + routeName, function (data) {
+                // log the data to our console
+                if (data) {
+                    // console.log(data[0].routeName);
+                    $("#newStudioName").val("Studio exists. Create new studio.");
+                    // window.location.href = "/" + data.routeName;
+                    // console.log(data);
+                }
+                else {
+            
+                var newBoard = {
+                    name: $("#newStudioName").val().trim(),
+                    routeName: routeName,
+                    isPublic: isPublic,
+                    description: $("#newStudioDesc").val().trim(),
+                    pssw: $("#newStudioPssw").val().trim(),
+                };
+
+                $.post("/api/posts", newBoard, function(data){
+                    // log the data we found
+                    console.log(data);
+                    console.log("new whiteboard");
+                    window.location.href = "/" + data.routeName;
+                });
+                    // on success, run this callback
+                    // .then(function (data) {
+                    //     // log the data we found
+                    //     console.log(data);
+                    //     console.log("new whiteboard");
+                    //     window.location.href = "/" + data.routeName;
+                    // });
+
+                console.log(newBoard);
+
+                // empty each input box by replacing the value with an empty string
+                $("#newStudioName").val("");
+                $("#newStudioDesc").val("");
+                $("#newStudioPssw").val("");
+
+                }
             });
-                // on success, run this callback
-                // .then(function (data) {
-                //     // log the data we found
-                //     console.log(data);
-                //     console.log("new whiteboard");
-                //     window.location.href = "/" + data.routeName;
-                // });
-
-            console.log(newBoard);
-
-            // empty each input box by replacing the value with an empty string
-            $("#newStudioName").val("");
-            $("#newStudioDesc").val("");
-            $("#newStudioPssw").val("");
-
-            }
-        });
-
-
+        }
+    }
     });
 
     // current url and room transfer

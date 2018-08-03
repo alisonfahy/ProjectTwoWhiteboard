@@ -34,14 +34,14 @@ module.exports = function (app) {
             });
     });
 
-    // GET route for getting all of the posts
-    app.get("/api", function (req, res) {
-        db.Blob.findAll({})
-            .then(function (results) {
-                // console.log("img", results[1].dataValues.body);
-                res.json(results);
-            });
-    });
+    // // GET route for getting all of the posts
+    // app.get("/api", function (req, res) {
+    //     db.Blob.findAll({})
+    //         .then(function (results) {
+    //             // console.log("img", results[1].dataValues.body);
+    //             res.json(results);
+    //         });
+    // });
 
     // GET route for getting a single table (room/studio)
     app.get("/api/:route", function (req, res) {
