@@ -3,9 +3,7 @@
 
 html, body {
   height: 100%;
-  
 }
-
 
 body {
   font: 12px/1 'Montserrat', sans-serif;
@@ -17,13 +15,11 @@ body {
      -khtml-user-select: none; /* Konqueror HTML */
        -moz-user-select: none; /* Firefox */
         -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
+            user-select: none; /* Supported by Chrome and Opera */
 
  /* whole page overflow hidden so there is no scrolling */
  overflow: hidden;
  /* cursor:url(https://s8.postimg.cc/5dn2c5qut/Marker.png), auto; */
-
 }
 
 h1, h2, h3 {
@@ -32,11 +28,7 @@ h1, h2, h3 {
 
 .flex-container-subtext h2 {
     padding: 12px;
-    /* max-width: 400px; */
     margin: 0 auto;
-  }
-  #welcome{
-    padding-top: 50px;
   }
 
 /* Side-Navigation Panel */
@@ -44,7 +36,6 @@ h1, h2, h3 {
   display: -webkit-flex;
   display: flex;
   min-height: 100%;
-  
 }
 
 .sidebar {
@@ -55,8 +46,6 @@ h1, h2, h3 {
 /* force 0 padding to override inheritance */
 .nav{
   padding: 0;
-  
-
 }
 
 .content {
@@ -70,10 +59,8 @@ h1, h2, h3 {
   box-shadow: 0 0 5px rgb(187, 179, 179);
   transform: translate3d(0,0,0);
   transition: all .3s;
-  /* margin bottom to keep the page drop shadow border */
   margin-bottom: 15px;
 }
-
 
 .content.content-is-open {
   margin-left: 220px;
@@ -84,8 +71,6 @@ h1, h2, h3 {
   font-size: 42px;
 }
 
-
-
 /* Items in Navigation Panel*/
 
 .title {
@@ -93,7 +78,6 @@ h1, h2, h3 {
   font-weight: 700;
   line-height: 30px;
   text-align: center;
-  /* text-transform: uppercase; */
   color: #222;
   padding-bottom: 10px;
   padding-top: 15px;
@@ -113,8 +97,6 @@ h1, h2, h3 {
   border-radius: 0px;
   width: 100%;
   flex-direction: column;
-
- 
 }
 
 .nav li button:before {
@@ -130,7 +112,6 @@ h1, h2, h3 {
 .nav li:nth-child(5) button:before { content: '\f00d'; }
 
 .nav li button:hover {
-
   -moz-box-shadow: 0 0 5px rgb(187, 179, 179);
   -webkit-box-shadow: 0 0 5px rgb(187, 179, 179);
   box-shadow: 0 0 5px rgb(187, 179, 179);
@@ -140,7 +121,6 @@ ul{
     list-style-type: none; 
     
 };
-
 
 /* Description */
 
@@ -166,7 +146,8 @@ h1 {
     margin: 0 auto;
     font-size: 22px;
 }
-/* Hides Forms Unitl Button is Clicked*/
+
+/* Hides Forms Until Button is Clicked*/
 #formCreate {
   display:none;
 }
@@ -294,10 +275,8 @@ h1 {
   margin-left: 10px;
   margin-right: 10px;
   border: 1px solid black;
-
-
-  
 }
+
 .formButton{
   font: 14px/1 'Montserrat', sans-serif;
   padding: 10px;
@@ -307,59 +286,66 @@ h1 {
   width: 80%;
   margin-right: 10px;
   margin-left: 10px;
-
 }
+
 .formButton:hover{
   background-color: black;
   color: white;
 }
 
   /* color+download nav bar */
-    #colorNav {
-        display: flex;
-        position: fixed;
-        left: 25px;
-        right: 25px;
-        bottom: 25px;
-      }
-		#colorNav div{
-			width: 20%;
-      height: 30px;
+  #colorNav {
+      display: flex;
+      position: fixed;
+      left: 25px;
+      right: 25px;
+      bottom: 25px;
     }
-		#cred{
-			background-color: red;
-		}
-		#cblue{
-			background-color: blue;
-		}
-		#cgreen{
-			background-color: green;
-		}
-		#cblack{
-			background-color: black;
-		}
-		#cwhite{
-      box-sizing: border-box;
-      height: 26px;
-      background-color: white;
-      border-top: 3px solid black;
-      border-bottom: 3px solid black;
-    }
+  #colorNav div{
+    width: 20%;
+    height: 30px;
+  }
+  #cred{
+    background-color: red;
+  }
+  #cblue{
+    background-color: blue;
+  }
+  #cgreen{
+    background-color: green;
+  }
+  #cblack{
+    background-color: black;
+  }
+  #cwhite{
+    box-sizing: border-box;
+    height: 26px;
+    background-color: white;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+  }
+  #btn-download{
+    border: 3px solid black;
+    display: block;
+    text-align: center;
+    box-sizing: border-box;
+    height: 30px;
+    text-decoration: none;
+    font-size: 16px;
+    padding-top: 4px;
+    color: black;
+  }
+  #btn-download:hover{
+    background-color: black;
+    color: white;
+  }
+
+  @media only screen and (max-width: 800px) {
     #btn-download{
-      border: 3px solid black;
-      display: block;
-      text-align: center;
-      box-sizing: border-box;
-      height: 30px;
-      text-decoration: none;
-      font-size: 16px;
-      padding-top: 4px;
-      color: black;
+      font-size: 12px;
+      padding-top: 6px;
     }
-    #btn-download:hover{
-      background-color: black;
-      color: white;
-    }
+  }
 
     
 

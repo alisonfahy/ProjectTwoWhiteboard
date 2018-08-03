@@ -16,11 +16,10 @@ function setup() {
 		canvas.style("z-index", "-1");
 		canvas.parent("contentDiv");
 
-	// slider = createSlider(1, 50, 25);
-	// slider.position(320, 360);
-	// sliderVal = slider.value();
+	// socket connection
+	socket = io();
 
-	var getImg = get();
+	// var getImg = get();
 	// console.log(getImg);
 
 	// set color to black on load
@@ -37,19 +36,6 @@ function setup() {
 			download();
 		});
 
-	// canvas.parent('sketch-holder');
-
-	// socket io connection ideas
-		// use ip address
-		// socket = io.connect("yourIpAddress:yourPort");
-		//use localhost and port
-		// socket = io.connect("localhost:8080");s
-		// //use hostname
-		// var socket = io.connect(window.location.hostname);
-		// // calling .connect() should use the server it's hosted on
-		// var socket = io.connect();
-		socket = io();
-
 	// check current url and switch to that room if exists
 		var currentUrl = $(location).attr('href');
 	var currentRoomName = currentUrl.replace("https://whiteboardstudio.herokuapp.com/", "");
@@ -59,54 +45,44 @@ function setup() {
 		else{
 			switchRoom(currentRoomName);
 		}
-		console.log("currentRoomName: ",currentRoomName);
-
-	
+		// console.log("currentRoomName: ",currentRoomName);
 
 	// socket connection for "mouse"
 		socket.on("mouse", newDrawing);
 
-
 	function switchRoom(room) {
 		socket.emit('switchRoom', room);
-		console.log("room: ",room);
+		// console.log("room: ",room);
 	}
-
-	
 
 	// color buttons
 		var red = select("#cred")
 		red.mousePressed(function () {		
 			c = color(255,0,0);
 			r = 255; g = 0; b = 0;
-		
 		});
 
 		var green = select("#cgreen")
 		green.mousePressed(function () {
 			c = color(14, 126, 18);
-			r = 14; g = 126; b = 18;
-			
+			r = 14; g = 126; b = 18;			
 		});
 
 		var blue = select("#cblue")
 		blue.mousePressed(function () {
 			c = color(0, 0, 255);
-			r = 0; g = 0; b = 255;
-			
+			r = 0; g = 0; b = 255;			
 		});
 
 		var black = select("#cblack")
 		black.mousePressed(function () {
 			c = color(0, 0, 0);
-			r = 0; g = 0; b = 0;
-		
+			r = 0; g = 0; b = 0;		
 		});
 		var white = select("#cwhite")
 		white.mousePressed(function () {
 			c = color(255, 255, 255);
-			r = 255; g = 255; b = 255;
-			
+			r = 255; g = 255; b = 255;			
 		});
 
 //end of setup for page
@@ -128,13 +104,7 @@ function setup() {
 		socket.on("color", function(data){
 				c = color(data.r, data.g,data.b);
 			});
-		// socket.on("slider", function (data) {
-		// 		sliderVal = data.sliderValue;
-		// 	});
-
-		// noStroke();
-		// var mouseColor = color(data.r, data.g, data.b);
-
+		
 			fill(c);
 			stroke(c);
 			strokeWeight(data.s);
@@ -156,9 +126,6 @@ function mouseDragged(){
 	if (mouseX < windowWidth && mouseX > 0 && mouseY < windowHeight && mouseY > 0){
 		socket.emit("mouse", data);
 	}
-	// noStroke();
-	// fill(c);
-	// ellipse(mouseX, mouseY, 10, 10)
 }
 
 // mouse pressed triggers socket emit
@@ -180,10 +147,7 @@ function mousePressed(){
 	socket.emit('color',colorData);
 	socket.emit("mouse", data);
 
-	console.log(mouseX, mouseY);
-	// noStroke();
-	// fill(c);
-	// ellipse(mouseX, mouseY, 10, 10)
+	// console.log(mouseX, mouseY);
 }
 
 // drawing section constantly redraws to canvas
@@ -194,82 +158,81 @@ function draw() {
 		strokeWeight(sliderPos);
 		line(pmouseX, pmouseY, mouseX, mouseY);
 	}
-
 } 
 
 // button pressed to change colors/slider values
 function keyPressed() {
-	console.log("keypress func")
-	console.log(keyCode);
+	// console.log("keypress func")
+	// console.log(keyCode);
 
 	if (keyCode == 49) {
-		console.log("Red") // 3 = red
+		// console.log("Red") // 3 = red
 		c = color(255, 0, 0);
 		r = 255; g = 0; b = 0;
 
 	} else if (keyCode == 50) {
 
-		console.log("Green") // 4 = green
+		// console.log("Green") // 4 = green
 		c = color(14, 126, 18);
 		r = 14; g = 126; b = 18;
 
 
 	} else if (keyCode == 51) {
 
-		console.log("Blue") // 5 = blue
+		// console.log("Blue") // 5 = blue
 		c = color(0, 0, 255);
 		r = 0; g = 0; b = 255;
 
 
 	} else if (keyCode == 52) {
-		console.log("key/black"); //1 = black
+		// console.log("key/black"); //1 = black
 		c = color(0, 0, 0);
 		r = 0; g = 0; b = 0;
 
 	} else if (keyCode == 53) {
-		console.log("white"); // 2 = white
+		// console.log("white"); // 2 = white
 		c = color(255, 255, 255);
 		r = 255; g = 255; b = 255;
 
 	} else if (keyCode == 54) {
 
-		console.log("Cyan"); // 7 = cyan
+		// console.log("Cyan"); // 7 = cyan
 		c = color(0, 255, 255);
 		r = 0; g = 255; b = 255;
 
 	} else if (keyCode == 55) {
 
-		console.log("Magenta"); // 8 = magenta
+		// console.log("Magenta"); // 8 = magenta
 		c = color(255, 0, 255);
 		r = 255; g = 0; b = 255;
 
 	} else if (keyCode == 56) {
 
-		console.log("Yellow"); // 6 = yellow
+		// console.log("Yellow"); // 6 = yellow
 		c = color(255, 255, 0);
 		r = 255; g = 255; b = 0;
 
 	} else if (keyCode == 57) {
-		console.log("Purple"); // 9 = purple
+		// console.log("Purple"); // 9 = purple
 		c = color(128, 0, 128);
 		r = 128; g = 0; b = 128;
 
 	} else if (keyCode == 48) {
-		console.log("Orange"); // 0 = orange
+		// console.log("Orange"); // 0 = orange
 		c = color(255, 165, 0);
 		r = 255; g = 165; b = 0;
 
 	} else if (keyCode == 38 || keyCode == 39) {
-		console.log("up");
+		// console.log("up");
 		if (sliderPos !== 51) {
-			console.log("sliderPos: ", sliderPos);
+			// console.log("sliderPos: ", sliderPos);
 			sliderPos += 5;
 		}
 
 	} else if (keyCode == 37 || keyCode == 40) {
-		console.log("down");
+		// console.log("down");
 		if (sliderPos !== 1) {
-			console.log("sliderPos: ", sliderPos);
+			// console.log("sliderPos: ", sliderPos);
 			sliderPos -= 5;
 		}
 	}

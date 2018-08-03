@@ -1,16 +1,6 @@
-// *********************************************************************************
-// api-routes.js - this file offers a set of routes for displaying and saving data to the db
-// *********************************************************************************
 
-// Dependencies
-// =============================================================
-
-// Requiring our Todo model
 var db = require("../models");
 
-var bodyParser = require("body-parser");
-
-// Routes
 // =============================================================
 module.exports = function (app) {
 
@@ -29,7 +19,6 @@ module.exports = function (app) {
             .then(function (dbPost) {
                 console.log("logged");
                 console.log(dbPost)
-                // console.log(dbPost.dataValues.body)
                 res.json(dbPost);
             });
     });
@@ -38,7 +27,6 @@ module.exports = function (app) {
     // app.get("/api", function (req, res) {
     //     db.Blob.findAll({})
     //         .then(function (results) {
-    //             // console.log("img", results[1].dataValues.body);
     //             res.json(results);
     //         });
     // });
@@ -52,18 +40,15 @@ module.exports = function (app) {
             },
         })
             .then(function (results) {
-                // console.log("img", results[1].dataValues.body);
                 res.json(results);
             });
     });
-
 
     // PUT route for updating posts
     app.put("/api/posts/", function (req, res) {
         db.Blob.update(req.body, {where: { routeName: req.body.routeName}})
             .then(function (dbPost) {
                 res.json(dbPost);
-                // console.log(dbPost);
             });
       });
 };

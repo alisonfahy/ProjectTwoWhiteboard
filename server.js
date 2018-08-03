@@ -53,13 +53,9 @@ function newConnection(socket) {
     socket.on('switchRoom', function (newroom) {
         // leave the current room (stored in session)
         socket.leave(socket.room);
-        // join new room, received as function parameter
         socket.join(newroom);
-        // socket.broadcast.to(socket.room).emit('updatechat', 'SERVER', socket.username + ' has left this room');
-        // update socket session room title
         socket.room = newroom;
-        // socket.broadcast.to(newroom).emit('updatechat', 'SERVER', socket.username + ' has joined this room');
-        // socket.emit('updaterooms', rooms, newroom);
+        console.log("joined:", socket.room);
     });
 
     // when the user disconnects.. perform this
@@ -85,7 +81,6 @@ function newConnection(socket) {
 
     function colorMsg(data) {
         console.log("socket.room: ", socket.room);
-        // socket.broadcast.emit('mouse', data);
         io.sockets.in(socket.room).emit('color', data);
         console.log(data);
     }

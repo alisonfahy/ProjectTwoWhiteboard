@@ -5,9 +5,6 @@ $(document).ready(function () {
         $("#admin").hide();
         $("#submitUpdate").hide();
 
-        
-
-
     $('.side-panel-toggle').on('click', function () {
         $('.content').toggleClass('content-is-open');
     });
@@ -18,14 +15,12 @@ $(document).ready(function () {
     });
 
 
+    $('body').on('keypress', function (e) {
+        if (e.keyCode == 109 && closed) {
+            $('.content').toggleClass('content-is-open');
+            }
+        });
     
-        $('body').on('keypress', function (e) {
-            if (e.keyCode == 109 && closed) {
-                $('.content').toggleClass('content-is-open');
-                }
-            });
-    
-
     //check whether an input field is in use and disable keypresses
         var closed = true;
 
@@ -92,21 +87,21 @@ $(document).ready(function () {
         e.preventDefault();
         var search;
         search = $("#studioName").val().trim();
-        console.log($("#studioName").val().trim());
+        // console.log($("#studioName").val().trim());
         
         if (wordCheck(search)) {
             $('input[name="studioName"]').val("Please search for a studio");
         } else {
 
             search = search.replace(/\s+/g, '');
-            console.log("boardSearch: ", search);
+            // console.log("boardSearch: ", search);
 
             $.get("/api/" + search, function (data) {
                 // log the data to our console
-                console.log(data);
+                // console.log(data);
                 if(data){
-                    console.log(data.routeName);
-                    // window.location.href = "/" + data.routeName;
+                    // console.log(data.routeName);
+                    window.location.href = "/" + data.routeName;
                     // console.log(data);
                 }
                 else{
@@ -117,7 +112,6 @@ $(document).ready(function () {
     });
 
     var radios = $('input[name="first-switch"]');
-    // console.log(radios);
     var isPublic;
 
     radios.on("click",function(){
@@ -133,7 +127,7 @@ $(document).ready(function () {
     // post request for new form
     $("#submitNewStudio").on("click", function (e) {
         e.preventDefault();
-        console.log("test");
+        // console.log("test");
 
         for (var i = 0; i < radios.length; i++) {
             if (radios[i].checked) {
@@ -176,19 +170,12 @@ $(document).ready(function () {
 
                 $.post("/api/posts", newBoard, function(data){
                     // log the data we found
-                    console.log(data);
-                    console.log("new whiteboard");
+                    // console.log(data);
+                    // console.log("new whiteboard");
                     window.location.href = "/" + data.routeName;
                 });
-                    // on success, run this callback
-                    // .then(function (data) {
-                    //     // log the data we found
-                    //     console.log(data);
-                    //     console.log("new whiteboard");
-                    //     window.location.href = "/" + data.routeName;
-                    // });
-
-                console.log(newBoard);
+                
+                // console.log(newBoard);
 
                 // empty each input box by replacing the value with an empty string
                 $("#newStudioName").val("");
@@ -203,24 +190,21 @@ $(document).ready(function () {
 
     // current url and room transfer
     var currentUrl = $(location).attr('href');
-    console.log(currentUrl);
+    // console.log(currentUrl);
     var currentRoomName = currentUrl.replace("https://whiteboardstudio.herokuapp.com/", "");
 
-
-
-    // get room data on load
-    if (currentRoomName !== "") {
+    // // get room data on load
+    // if (currentRoomName !== "") {
     
-    $.get("/api/" + currentRoomName, function (data) {
-        if (data) {
-            // log the data to our console
-            console.log(data);
-            console.log(data.routeName);
-            }
-        });
-    };
+    //     $.get("/api/" + currentRoomName, function (data) {
+    //         if (data) {
+    //             // log the data to our console
+    //             console.log(data);
+    //             console.log(data.routeName);
+    //             }
+    //         });
+    // };
 
-    
     // global admin privelege
     var admin = false;
 
@@ -236,8 +220,8 @@ $(document).ready(function () {
         $.get("/api/" + currentRoomName, function (data) {
             if (data) {
                 // log the data to our console
-                console.log(data);
-                console.log(data.pssw);
+                // console.log(data);
+                // console.log(data.pssw);
                 if(pssw === data.pssw){
                     admin = true;
 
@@ -256,7 +240,6 @@ $(document).ready(function () {
                 }
             }
         });
-
         }
     });
 
@@ -295,7 +278,7 @@ $(document).ready(function () {
             data: data
         })
             .then(function () {
-                console.log(data);
+                // console.log(data);
                 window.location.reload();
                 // window.location.href = window.location.href;
             });
@@ -303,14 +286,13 @@ $(document).ready(function () {
 
 
     // random string generator
-
     function makeId() {
         var text = "";
         var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
         for (var i = 0; i < 20; i++)
             text += possible.charAt(Math.floor(Math.random() * possible.length));
-        console.log(text);
+        // console.log(text);
         return text;
     };
     
