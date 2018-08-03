@@ -1,5 +1,4 @@
 // create table model
-// the name blob is arbitrary. We can change it later.
 
 module.exports = function (sequelize, DataTypes) {
     var Blob = sequelize.define("Blob", {
