@@ -57,7 +57,10 @@ function setup() {
 	});
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> d2eae0aee99dbe820fd5e79aba156f7bfca5379f
 	// canvas.parent('sketch-holder');
 
 	// socket io connection ideas
@@ -71,6 +74,9 @@ function setup() {
 	// var socket = io.connect();
 	socket = io();
 
+<<<<<<< HEAD
+>>>>>>> d2eae0aee99dbe820fd5e79aba156f7bfca5379f
+=======
 >>>>>>> d2eae0aee99dbe820fd5e79aba156f7bfca5379f
 	// check current url and switch to that room if exists
 <<<<<<< HEAD
@@ -124,6 +130,9 @@ function setup() {
 
 	
 >>>>>>> master
+<<<<<<< HEAD
+>>>>>>> d2eae0aee99dbe820fd5e79aba156f7bfca5379f
+=======
 >>>>>>> d2eae0aee99dbe820fd5e79aba156f7bfca5379f
 
 	// socket connection for "mouse"
@@ -155,7 +164,13 @@ function setup() {
 		$("#route").val("");
 
 	});
+<<<<<<< HEAD
+=======
 
+>>>>>>> d2eae0aee99dbe820fd5e79aba156f7bfca5379f
+
+=======
+>>>>>>> master
 
 <<<<<<< HEAD
 	function switchRoom(room) {
@@ -168,6 +183,9 @@ function setup() {
 	function switchRoom(room) {
 		socket.emit('switchRoom', room);
 		console.log("room: ", room);
+<<<<<<< HEAD
+>>>>>>> d2eae0aee99dbe820fd5e79aba156f7bfca5379f
+=======
 >>>>>>> d2eae0aee99dbe820fd5e79aba156f7bfca5379f
 	}
 
@@ -303,6 +321,9 @@ function mousePressed() {
 	// fill(c);
 	// ellipse(mouseX, mouseY, 10, 10)
 >>>>>>> master
+<<<<<<< HEAD
+>>>>>>> d2eae0aee99dbe820fd5e79aba156f7bfca5379f
+=======
 >>>>>>> d2eae0aee99dbe820fd5e79aba156f7bfca5379f
 }
 

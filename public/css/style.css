@@ -20,7 +20,11 @@ body {
 
  /* whole page overflow hidden so there is no scrolling */
  overflow: hidden;
+<<<<<<< HEAD
  /* cursor:url(https://s8.postimg.cc/5dn2c5qut/Marker.png), auto; */
+=======
+ cursor:url(https://s8.postimg.cc/5dn2c5qut/Marker.png), auto;
+>>>>>>> d2eae0aee99dbe820fd5e79aba156f7bfca5379f
 }
 
 h1, h2, h3 {
@@ -78,6 +82,11 @@ h1, h2, h3 {
   font-size: 16px;
   line-height: 50px;
   text-align: center;
+<<<<<<< HEAD
+=======
+  text-transform: uppercase;
+  letter-spacing: 7px;
+>>>>>>> d2eae0aee99dbe820fd5e79aba156f7bfca5379f
   color: #222;
   border-bottom: 1px solid #222;
   background:darkgray;
@@ -106,6 +115,7 @@ h1, h2, h3 {
   left: 20px;
 }
 
+<<<<<<< HEAD
 .nav li:nth-child(2) button:before { content: '\f0fe'; }
 .nav li:nth-child(3) button:before { content: '\f086'; }
 .nav li:nth-child(4) button:before { content: '\f085'; }
@@ -115,6 +125,15 @@ h1, h2, h3 {
   -moz-box-shadow: 0 0 5px rgb(187, 179, 179);
   -webkit-box-shadow: 0 0 5px rgb(187, 179, 179);
   box-shadow: 0 0 5px rgb(187, 179, 179);
+=======
+.nav li:nth-child(1) button:before { content: '\f0fe'; }
+.nav li:nth-child(2) button:before { content: '\f086'; }
+.nav li:nth-child(3) button:before { content: '\f085'; }
+
+
+.nav li button:hover {
+  background: lightgray;
+>>>>>>> d2eae0aee99dbe820fd5e79aba156f7bfca5379f
 }
 
 ul{ 
@@ -273,7 +292,13 @@ h1 {
   align-items: center;
   margin-left: 10px;
   margin-right: 10px;
+<<<<<<< HEAD
   border: 1px solid black;
+=======
+
+
+  
+>>>>>>> d2eae0aee99dbe820fd5e79aba156f7bfca5379f
 }
 
 .formButton{
@@ -287,12 +312,18 @@ h1 {
   width: 80%;
   margin-right: 10px;
   margin-left: 10px;
+<<<<<<< HEAD
 }
 
 .formButton:hover{
   background-color: black;
   color: white;
 }
+=======
+  letter-spacing: 3px;
+
+}
+>>>>>>> d2eae0aee99dbe820fd5e79aba156f7bfca5379f
 
   /* color+download nav bar */
   #colorNav {
@@ -346,8 +377,43 @@ h1 {
       font-size: 12px;
       padding-top: 6px;
     }
+<<<<<<< HEAD
   }
 
     
 
   
+=======
+    
+    #colorNav{
+              display: flex;
+          }
+          #colorNav div{
+              width: 20%;
+              height: 30px;
+          }
+          #cred{
+              background-color: red;
+          }
+          #cblue{
+              background-color: blue;
+          }
+          #cgreen{
+              background-color: green;
+          }
+          #cblack{
+              background-color: black;
+          }
+          #cwhite{
+              background-color: white;
+              border: solid .02px black;
+          }
+          
+          .flex-container-subtext {
+            position: relative;
+            top: calc(100% - 130px);
+          }
+          h1, h2, h3 {
+           text-align: center;
+          }
+>>>>>>> d2eae0aee99dbe820fd5e79aba156f7bfca5379f
