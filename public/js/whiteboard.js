@@ -71,7 +71,9 @@ $(document).ready(function () {
 
     function wordCheck(word) {
         var check = false;
-        var wordSearch = ["", "Please search for a studio", "Studio not found", "Studio exists. Create new studio.","Enter valid name.", undefined];
+        var wordSearch = ["", "Please search for a studio", "Studio not found",
+         "Studio exists. Create new studio.", "Enter valid name.",
+            "Please enter password", "Enter valid pssw","Wrong pssw", undefined];
         
         for (i = 0; i < wordSearch.length; i++) {
             if (word === wordSearch[i]) {
@@ -148,7 +150,7 @@ $(document).ready(function () {
         }
         else{
 
-            if ($("#newStudioPssw").val().trim() === "" || $("#newStudioPssw").val().trim() === "Please enter password"){
+            if (wordCheck($("#newStudioPssw").val().trim())){
                 $("#newStudioPssw").val("Please enter password");
             } else {
 
@@ -225,7 +227,11 @@ $(document).ready(function () {
     // submit post button event
     $("#submitPssw").on("click", function (e) {
         e.preventDefault();
-        var pssw = $("#adminPssw").val();
+        var pssw = $("#adminPssw").val().trim();
+
+        if(wordCheck(pssw)){
+            $("#adminPssw").val("Enter valid pssw");
+        } else {
 
         $.get("/api/" + currentRoomName, function (data) {
             if (data) {
@@ -251,7 +257,7 @@ $(document).ready(function () {
             }
         });
 
-
+        }
     });
 
     // submit new update button
