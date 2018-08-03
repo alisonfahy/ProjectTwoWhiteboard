@@ -8,7 +8,6 @@ html, body {
 body {
   font: 12px/1 'Montserrat', sans-serif;
   /* color: #333; */
-  /* background: darkgray; */
   overflow-x: hidden;
 
   -webkit-touch-callout: none; /* iOS Safari */
@@ -20,11 +19,7 @@ body {
 
  /* whole page overflow hidden so there is no scrolling */
  overflow: hidden;
-<<<<<<< HEAD
  /* cursor:url(https://s8.postimg.cc/5dn2c5qut/Marker.png), auto; */
-=======
- cursor:url(https://s8.postimg.cc/5dn2c5qut/Marker.png), auto;
->>>>>>> d2eae0aee99dbe820fd5e79aba156f7bfca5379f
 }
 
 h1, h2, h3 {
@@ -79,27 +74,23 @@ h1, h2, h3 {
 /* Items in Navigation Panel*/
 
 .title {
-  font-size: 16px;
-  line-height: 50px;
+  font: 28px/1 'Montserrat', sans-serif;
+  font-weight: 700;
+  line-height: 30px;
   text-align: center;
-<<<<<<< HEAD
-=======
-  text-transform: uppercase;
-  letter-spacing: 7px;
->>>>>>> d2eae0aee99dbe820fd5e79aba156f7bfca5379f
   color: #222;
-  border-bottom: 1px solid #222;
-  background:darkgray;
+  padding-bottom: 10px;
+  padding-top: 15px;
+  border-bottom: 3px solid #222;
 }
 
 .nav button {
+  font: 14px/1 'Montserrat', sans-serif;
   position: relative;
   display: block;
   padding: 15px 15px 15px 50px;
-  font-size: 12px;
   color: #222;
   border-bottom: 1px solid #222;
-  /* background-color: darkgray; */
   border: 0;
   background: none;
   box-shadow: none;
@@ -115,7 +106,6 @@ h1, h2, h3 {
   left: 20px;
 }
 
-<<<<<<< HEAD
 .nav li:nth-child(2) button:before { content: '\f0fe'; }
 .nav li:nth-child(3) button:before { content: '\f086'; }
 .nav li:nth-child(4) button:before { content: '\f085'; }
@@ -125,15 +115,6 @@ h1, h2, h3 {
   -moz-box-shadow: 0 0 5px rgb(187, 179, 179);
   -webkit-box-shadow: 0 0 5px rgb(187, 179, 179);
   box-shadow: 0 0 5px rgb(187, 179, 179);
-=======
-.nav li:nth-child(1) button:before { content: '\f0fe'; }
-.nav li:nth-child(2) button:before { content: '\f086'; }
-.nav li:nth-child(3) button:before { content: '\f085'; }
-
-
-.nav li button:hover {
-  background: lightgray;
->>>>>>> d2eae0aee99dbe820fd5e79aba156f7bfca5379f
 }
 
 ul{ 
@@ -253,7 +234,8 @@ h1 {
   margin-left: 6rem;
 }
 .switch--horizontal .toggle-outside {
-  background: lightslategray;
+  background: white;
+  border: 2px solid black;
   position: absolute;
   width: 67px;
   left: 60px;
@@ -273,18 +255,18 @@ h1 {
 .formHeaders{
   /* font-size: 26px;
   margin-top: 80px; */
-  font-size: 12px;
+  font: 20px/1 'Montserrat', sans-serif;
   line-height: 50px;
   text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 6px;
+  font-weight: 700;
   color: #222;
-  /* background:darkgray; */
-  margin-top: 20px;
-  margin-bottom: 25px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border-top: 1px solid black;
 }
 
 .formField{
+  font: 12px/1 'Montserrat', sans-serif;
   margin-top: 15px;
   margin-bottom: 15px;
   width: 80%;
@@ -292,38 +274,24 @@ h1 {
   align-items: center;
   margin-left: 10px;
   margin-right: 10px;
-<<<<<<< HEAD
   border: 1px solid black;
-=======
-
-
-  
->>>>>>> d2eae0aee99dbe820fd5e79aba156f7bfca5379f
 }
 
 .formButton{
-  background: #222;
-  color: #ffffff !important;
-  padding: 20px;
-  text-transform: uppercase;
-  border-radius: 3px;
+  font: 14px/1 'Montserrat', sans-serif;
+  padding: 10px;
+  border: 3px solid black;
   display: inline-block;
-  margin-top: 30px;
+  margin-top: 10px;
   width: 80%;
   margin-right: 10px;
   margin-left: 10px;
-<<<<<<< HEAD
 }
 
 .formButton:hover{
   background-color: black;
   color: white;
 }
-=======
-  letter-spacing: 3px;
-
-}
->>>>>>> d2eae0aee99dbe820fd5e79aba156f7bfca5379f
 
   /* color+download nav bar */
   #colorNav {
@@ -377,43 +345,8 @@ h1 {
       font-size: 12px;
       padding-top: 6px;
     }
-<<<<<<< HEAD
   }
 
     
 
   
-=======
-    
-    #colorNav{
-              display: flex;
-          }
-          #colorNav div{
-              width: 20%;
-              height: 30px;
-          }
-          #cred{
-              background-color: red;
-          }
-          #cblue{
-              background-color: blue;
-          }
-          #cgreen{
-              background-color: green;
-          }
-          #cblack{
-              background-color: black;
-          }
-          #cwhite{
-              background-color: white;
-              border: solid .02px black;
-          }
-          
-          .flex-container-subtext {
-            position: relative;
-            top: calc(100% - 130px);
-          }
-          h1, h2, h3 {
-           text-align: center;
-          }
->>>>>>> d2eae0aee99dbe820fd5e79aba156f7bfca5379f

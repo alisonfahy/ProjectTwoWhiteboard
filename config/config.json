@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "blobTest",
+    "database": "",
     "host": "localhost",
     "port": 8889,
     "dialect": "mysql"
@@ -10,7 +10,7 @@
   "test": {
     "username": "root",
     "password": "root",
-    "database": "blobTest",
+    "database": "",
     "host": "localhost",
     "port": 8889,
     "dialect": "mysql"
@@ -19,7 +19,7 @@
     "username": "",
     "password": "",
     "database": "",
-    "host": "z12itfj4c1vgopf8.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "host": "",
     "port": 3306,
     "dialect": "mysql"
   }
