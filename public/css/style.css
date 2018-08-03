@@ -130,7 +130,10 @@ h1, h2, h3 {
 .nav li:nth-child(5) button:before { content: '\f00d'; }
 
 .nav li button:hover {
-  border: 1px solid #d0d0d0;
+
+  -moz-box-shadow: 0 0 5px rgb(187, 179, 179);
+  -webkit-box-shadow: 0 0 5px rgb(187, 179, 179);
+  box-shadow: 0 0 5px rgb(187, 179, 179);
 }
 
 ul{ 
