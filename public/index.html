@@ -6,8 +6,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>White Board Studio</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- removed reset -->
-	<!-- <link rel="stylesheet" type="text/css" media="screen" href="./css/reset.css" /> -->
 	<link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
 
 	<script src="libraries/p5.js"></script>
@@ -22,13 +20,17 @@
 </head>
 
 <body>
-
 	<div class="wrapper">
 		<!-- sidebar start -->
 		<div class="sidebar">
 			<div class="title">Main Menu</div>
+
 			<ul class="nav">
 				<!-- Nav Bar Buttons -->
+				
+				<li>
+					<div class="addthis_inline_share_toolbox"></div>
+				</li>
 				<li>
 					<button type="button" class="btn btn-primary btn-lg" id='buttonCreate'>Create a New Studio</button>
 				</li>
@@ -38,15 +40,19 @@
 				<li>
 					<button type="button" class="btn btn-primary btn-lg" id="buttonSettings">Settings</a>
 				</li>
+				<li>
+					<button type="button" class="btn btn-primary btn-lg" id="buttonClose">Close Menu</a>
+				</li>
+								
 			</ul>
 			<form id="formCreate">
 				<!-- Form for Creating a Studio -->
 				<h2 class="formHeaders">Create Studio</h2>
 				<div class="container">
 					<div class="switch switch--horizontal">
-						<input id="radio-a" type="radio" name="first-switch" checked="checked" value="1" id="radioPublic" />
+						<input id="radio-a" type="radio" name="first-switch" checked="checked" value="1" id="radioPublic"/>
 						<label for="radio-a">Public</label>
-						<input id="radio-b" type="radio" name="first-switch" value="0" id="radioPrivate" />
+						<input id="radio-b" type="radio" name="first-switch" value="0" id="radioPrivate"/>
 						<label for="radio-b">Private</label>
 						<span class="toggle-outside">
 							<span class="toggle-inside"></span>
@@ -65,9 +71,7 @@
 			<form id="formEnter">
 				<h2 class="formHeaders">Enter Studio</h2>
 				<b>Studio Name: </b>
-				<input class="formField" type="text" name="studioName" id="studioName">
-				<b>Password: </b>
-				<input class="formField" type="text" name="studioPassword">
+				<input class="formField" type="text" name="studioName" id ="studioName">
 				<button class="formButton" type="button" id="submitEnterStudio">Enter Studio</button>
 			</form>
 			<!-- Form for Entering Settings -->
@@ -80,7 +84,6 @@
 					<input class="formField" type="text" name="studioPassword" id="adminPssw">
 				</div>
 
-				<!-- admin field for when pssw match (update form) -->
 				<div id="admin">
 					<div class="container">
 						<div class="switch switch--horizontal">
@@ -107,28 +110,31 @@
 			</form>
 		</div>
 
-		<!-- <div class="content content-is-open">  remove "content-is-open" to have the page start closed-->
 		<div class="content" id="contentDiv">
 			<div class="flex-container">
 				<div>
 					<span class='side-panel-toggle'>
 						<i class="fa fa-bars"></i>
+						</span>
 				</div>
 
 				<div class="siteHeading">
+					<h1 id="mainTitle">Whiteboard</h1>
 				</div>
-				</span>
+				
 			</div>
-
-			<h1>Whiteboard</h1>
-			<h2 class="hoverhide">Share your drawings in real time.</h2>
-			<h2 class="hoverhide">To begin, find an exisiting studio or create a new one.</h2>
-
-
 			<div class="flex-container-subtext">
-				<h3>Use the num pad for more colors, use Up and Down arrow to increase/decrease brush size</h3>
-				<!-- color picker nav bar -->
+				<h1 class="hoverhide">Welcome to whiteboard studio.</h1>
+				<h2 class="hoverhide">Share your drawings in real time!</h2>
+				<h2 class="hoverhide">To begin, find an exisiting studio or create a new one.</h2>
+				<h2 class="hoverhide">Use the <i class="fa fa-arrow-up" aria-hidden="true"></i> and <i class="fa fa-arrow-down" aria-hidden="true"></i> arrows to change brush sizes.</h2>
+				<h2 class="hoverhide">Use the num pad for more colors.</h2>
+				<h2 class="hoverhide">Click "m" to open the menu.</h2>
+				<h3 class="hoverhide">Resizing the page will erase your drawing.</h3>
+
+				<!-- color picker 2av bar -->
 				<div id="colorNav">
+
 					<div id="cred"></div>
 					<div id="cgreen"></div>
 					<div id="cblue"></div>
@@ -138,31 +144,7 @@
 						<a href="#" class="button" id="btn-download">Download</a>
 					</div>
 				</div>
-
-
-
-
-
-				<!-- dummy form for rooms/table generation -->
-
-				<!-- <div>
-							<b>ROOMS</b>
-							<div id="rooms">
-								<a href="#" id="room1">room1</a>
-								<a href="#" id="room2">room2</a>
-								<a href="#" id="room3">room3</a>
-							</div>
-						</div>
-						<input type="text" id="name">
-						<input type="text" id="description">
-						<input type="text" id="route">
-						<button id="test">test</button>
-						
-						<input type="text" id="boardSearch">
-						<button id="boardButton">Board Search</button> -->
-
-
-				<!-- <div id="sketch-holder"></div> -->
+				
 			</div>
 		</div>
 
@@ -171,7 +153,7 @@
 	</div>
 
 
-
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b60b5783b4cb53e"></script>
 
 </body>
 

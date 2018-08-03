@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "root",
     "database": "",
     "host": "localhost",
     "port": 8889,
@@ -9,18 +9,18 @@
   },
   "test": {
     "username": "root",
-    "password": "",
+    "password": "root",
     "database": "",
     "host": "localhost",
     "port": 8889,
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
+    "username": "",
     "password": "",
     "database": "",
-    "host": "localhost",
-    "port": 8889,
+    "host": "",
+    "port": 3306,
     "dialect": "mysql"
   }
 }
