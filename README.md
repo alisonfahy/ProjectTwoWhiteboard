@@ -1,6 +1,6 @@
 # ProjectTwoWhiteboard
 
-Whiteboard Studio
+[Whiteboard Studio](https://whiteboardstudio.herokuapp.com/)
 
 We created an online whiteboard, which can be used by mulitple people in realtime. 
 Boards can be downloaded so you can enjoy them anytime!
