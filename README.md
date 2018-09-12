@@ -34,4 +34,4 @@ Boards can be made Public or Private. Clicking Private will create a unique code
 
 Have fun drawing!
 
-[ScreenShot]: https://user-images.githubusercontent.com/38054153/45453927-d4c0d100-b6a7-11e8-91b5-70f132dfea65.png "Screen shot"
+![ScreenShot](https://user-images.githubusercontent.com/38054153/45453927-d4c0d100-b6a7-11e8-91b5-70f132dfea65.png)
