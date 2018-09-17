@@ -2,7 +2,7 @@
 
 [Whiteboard Studio](https://whiteboardstudio.herokuapp.com/)
 
-We created an online whiteboard, which can be used by mulitple people in realtime. 
+We created an online whiteboard, which can be used by multiple people in realtime. 
 Boards can be downloaded so you can enjoy them anytime!
 
 NPM's used: sequelize, express, body-parser, mysql2, socket.io
